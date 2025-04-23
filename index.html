@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Me EllzXn</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="https://files.catbox.moe/rjvrgt.png" type="image/x-icon">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle-btn">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+
+    <div id="music-player-controls" class="music-player-controls">
+        <img id="music-logo" src="https://files.catbox.moe/vqe1tq.png" alt="Music Player" class="music-player-icon" title="Buka/Tutup Info Musik">
+        <div class="song-title-marquee-container">
+            <span id="song-title-marquee">Pilih Lagu...</span>
+        </div>
+        <div class="player-buttons">
+            <button id="popup-prev-button" title="Lagu Sebelumnya"><i class="fas fa-backward-step"></i></button>
+            <button id="popup-play-pause-button" title="Putar/Jeda"><i class="fas fa-play"></i></button>
+            <button id="popup-next-button" title="Lagu Berikutnya"><i class="fas fa-forward-step"></i></button>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#chat-ai" class="nav-link active" data-target="chat-ai">Sky-AI</a></li>
+            <li><a href="#home" class="nav-link" data-target="home">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="page">
+            <div class="home-content">
+                <div class="profile-pic">
+                    <img src="https://files.catbox.moe/rjvrgt.png" alt="Sky-AI Art">
+                </div>
+                <div class="profile-text">
+                    <h1>Sky-AI</h1>
+                    <p>
+                        Sky-AI adalah AI yang dibuat untuk menjadi teman cerita bagi semua orang. AI ini dibuat dengan API Gemini dengan model Gemini 2.0 Flash. Dapat melihat gambar dan juga save session.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="home" class="page">
+            <div class="home-content">
+                <div class="profile-text">
+                    <h1>Credit</h1>
+                    <p>
+                        <strong>Sky-AI</strong> dibuat oleh EllzXn. <br>
+                        <strong>API Gemini</strong> oleh Google AI Studio. <br>
+                        <strong>UI/UX</strong> dibuat oleh LipWangsaf menggunakan HTML, CSS, dan JavaScript. <br>
+                        <strong>Hosting</strong> menggunakan Vercel. <br>
+                        <strong>Art</strong> dibuat oleh YourFavGadget. <br>
+                        <strong>Font</strong> menggunakan Google Fonts. <br>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="chat-ai" class="page active">
+            <div id="particles-js"></div>
+            <div id="chat-container">
+                <h2>Sky-AI</h2>
+                <div id="chat-messages">
+                </div>
+                <div id="typing-indicator" style="display: none;">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Ketik pesan untuk Sky...">
+                    <button id="send-button" title="Kirim Pesan"><i class="fas fa-paper-plane"></i></button>
+                </div>
+                <div class="chat-controls">
+                    <button id="upload-button" aria-label="Upload Gambar">
+                        <i class="fas fa-paperclip"></i>
+                        <span>Upload Foto</span>
+                    </button>
+                    <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+                    <div class="chat-buttons">
+                        <button id="reset-chat-button" title="Reset Percakapan"><i class="fas fa-sync-alt"></i> Reset</button>
+                    </div>
+                </div>
+                <div id="image-preview-container">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="overlay"></div>
+    <div id="music-player-popup">
+        <button id="close-button" title="Tutup Info Musik"><i class="fas fa-times"></i></button>
+        <div class="popup-content">
+            <img id="album-art-display" src="https://via.placeholder.com/150/333/eee?text=Album+Art" alt="Album Art">
+            <h3 id="song-title-display">Pilih Lagu</h3>
+            <div class="progress-bar-container" title="Progress Lagu">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-color); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out; opacity: 0;"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
