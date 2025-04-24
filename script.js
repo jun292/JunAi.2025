@@ -747,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load Music List
     const musicItems = [
-        { src: "https://files.catbox.moe/llsrdb.mp3", thumbnail: "https://files.catbox.moe/yenxl8.jpg", title: "Maafkan Diriku - Crescendo" };
+        { src: "https://files.catbox.moe/llsrdb.mp3", thumbnail: "https://files.catbox.moe/yenxl8.jpg", title: "Maafkan Diriku - Crescendo" },
         { src: "https://files.catbox.moe/zi78n4.mp3", thumbnail: "https://files.catbox.moe/zhuvtz.jpg", title: "Masa Lalu - Chaeroel" }
         // Tambahkan lagu lain di sini
     ];
