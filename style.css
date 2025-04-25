@@ -21,9 +21,9 @@
     --scroll-thumb: #444444;
     --shadow-color: rgba(0, 0, 0, 0.4);
     --typing-dot: #b0b0b0;
-    --message-bot-bg: #333333;
+    --message-bot-bg: #1e1e1e;
     --message-user-bg: #99c4d5;
-    --message-bot-text: #e0e0e0;
+    --message-bot-text: #ffffff;
     --message-user-text: #000000;
     --rgb-primary: 3, 218, 198;
     --aqua-color: #99c4d5;
@@ -34,7 +34,7 @@ body.light-theme {
     --nav-bg-color: #ffffff;
     --card-bg-color: #ffffff;
     --text-color: #333333;
-    --heading-color: #1a1a2e;
+    --heading-color: #000000;
     --primary-color: #99c4d5;
     --secondary-color: #6c757d;
     --icon-color: #555555;
@@ -50,9 +50,9 @@ body.light-theme {
     --scroll-thumb: #ced4da;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --typing-dot: #555555;
-    --message-bot-bg: #e9ecef;
+    --message-bot-bg: #ffffff;
     --message-user-bg: #99c4d5;
-    --message-bot-text: #333;
+    --message-bot-text: #000000;
     --message-user-text: #ffffff;
     --rgb-primary: 0, 123, 255;
     --aqua-color: #99c4d5;
@@ -523,7 +523,6 @@ main {
     word-wrap: break-word;
     line-height: 1.4;
     transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -658,8 +657,7 @@ main {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
     color: var(--text-color);
 }
 #upload-button i {
@@ -668,10 +666,9 @@ main {
     transition: color 0.3s ease;
 }
 #upload-button:hover {
-    background-color: var(--bg-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    border-color: var(--icon-color);
+    background-color: var(--message-bot-bg);
+    color: var(--icon-hover-color);
+    border-color: var(--message-bot-bg);
 }
 #upload-button.has-file {
     border-color: var(--primary-color);
@@ -688,7 +685,7 @@ main {
 
 #reset-chat-button,
 #whatsapp-button-chat {
-    background-color: transparent;
+    background-color: var(--input-bg);
     color: var(--icon-color);
     border: 1px solid var(--border-color);
     border-radius: 20px;
