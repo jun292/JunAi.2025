@@ -653,12 +653,12 @@ main {
     padding: 10px 15px;
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    color: var(--text-color);
+    color: var(--icon-color);
 }
 #upload-button i {
     color: var(--aqua-color);
@@ -889,14 +889,14 @@ main {
         border-radius: 0;
     }
     #chat-container h2 { font-size: 1.4rem; }
-     .message { max-width: 85%; }
+    .message { max-width: 85%; }
     .chat-input-area { gap: 0.5rem; }
     #chat-input { padding: 0.8rem 1rem; min-height: 42px; }
     .chat-input-area button#send-button { width: 42px; height: 42px; font-size: 1.2rem; }
-     .chat-controls { margin-top: 0.5rem; padding: 0; }
+    .chat-controls { margin-top: 0.5rem; padding: 0; }
     #reset-chat-button, #whatsapp-button-chat { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
-     #upload-button { padding: 8px 12px; font-size: 0.85rem; }
-     #image-preview-container { margin-left: 0; }
+    #upload-button { padding: 8px 12px; font-size: 0.85rem; }
+    #image-preview-container { margin-left: 0; }
 
 }
 
@@ -916,11 +916,11 @@ main {
     #home p { font-size: 1rem; }
     #projects .project-grid { grid-template-columns: 1fr; }
     #chat-ai { height: calc(100vh - 130px - 1rem); }
-     #chat-container { padding: 0.8rem; }
-     .chat-input-area button#send-button { width: 40px; height: 40px; font-size: 1.1rem; }
+    #chat-container { padding: 0.8rem; }
+    .chat-input-area button#send-button { width: 40px; height: 40px; font-size: 1.1rem; }
     #chat-input { padding: 0.7rem 0.8rem; font-size: 0.9rem; min-height: 40px; }
     #upload-button { padding: 7px 10px; font-size: 0.8rem; }
     #upload-button i { font-size: 1em; }
-     #image-preview-container { max-width: 120px; }
-     .message { max-width: 90%; }
+    #image-preview-container { max-width: 120px; }
+    .message { max-width: 90%; }
 }
