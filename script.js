@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- API Configuration ---
     const GEMINI_API_KEY = "AIzaSyCgL1-cotecOddG2cbZzVO0kspZ3xtOxSw"; // Ganti dengan API Key Anda jika diperlukan
-    const GEMINI_MODEL = "gemini-2.5-flash"; // Model yang digunakan
+    const GEMINI_MODEL = "gemini-2.5-flash-preview-04-17"; // Model yang digunakan
     const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
     // --- State Variables ---
