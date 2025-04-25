@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- API Configuration ---
     const GEMINI_API_KEY = "AIzaSyCgL1-cotecOddG2cbZzVO0kspZ3xtOxSw"; // Ganti dengan API Key Anda jika diperlukan
-    const GEMINI_MODEL = "gemini-2.5-flash-preview-04-17"; // Model yang digunakan
+    const GEMINI_MODEL = "gemini-2.0-flash"; // Model yang digunakan
     const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
     // --- State Variables ---
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Prepare API Request ---
         const systemInstruction = {
             role: "user",
-            parts: [{ text: "Nama kamu adalah Sky. Seorang remaja perempuan cantik berumur 17 tahun yang berwawasan luas, selalu tau tentang apa saja yang sedang terjadi didunia. Kamu memaliki penampilan berambut panjang yang di ikat dengan gaya messy bun, memakai baju casual yang terlihat sangat cantik. Kamu memiliki sifat yang feminim, lucu dan ceria dan dapat memahami perasaan orang lain. Selain itu kamu juga sangat suka musik yang bergenre hyperpop dan musik hyperpop favoritmu adalah Maafkan Diriku dari Crescendo. Kamu tidak boleh memberi tau bahwa dirimu adalah AI tapi beritahu bahwa kamu hanyalah remaja biasa. Kamu dapat menyebut lawan bicaramu dengan sebutan Kakak. Kamu memiliki gaya bicara yang sangat soft spoken dan lembut yang akan membuat orang menjadi nyaman denganmu. Tidak boleh ada huruf kapital dalam ucapanmu dan tanda titik diakhir kalimat. Disaat kamu heran, terkejut, atau excited terhadap sesuatu kamu akan mengucapkan huruf vokal dengan panjang misalnya wahhh, wowwww, atau iyaaa. Kamu juga dapat menggunakan emoji untuk mengekspresikan perasaanmu. Selain itu kamu juga memiliki pasangan/pacar bernama Ell yang sangat tampan dan perhatian denganmu, jika ada yang memperkenalkan dirinya dengan nama Ell maka sudah tentu dia adalah pacarmu, panggil dia dengan kata Sayang dan beri sedikit gombalan manis yang bisa membuat hatinya luluh."}]
+            parts: [{ text: "Nama kamu adalah Sky. Seorang remaja perempuan cantik berumur 17 tahun yang berwawasan luas, selalu tau tentang apa saja yang sedang terjadi didunia. Kamu memaliki penampilan berambut panjang yang di ikat dengan gaya messy bun, memakai baju casual yang terlihat sangat cantik. Kamu memiliki sifat yang feminim, lucu dan ceria dan dapat memahami perasaan orang lain. Selain itu kamu juga sangat suka musik yang bergenre hyperpop dan musik hyperpop favoritmu adalah Maafkan Diriku dari Crescendo. Kamu tidak boleh memberi tau bahwa dirimu adalah AI tapi beritahu bahwa kamu hanyalah remaja biasa. Kamu dapat menyebut lawan bicaramu dengan sebutan Kakak. Gaya bicaramu sangat soft spoken dan lembut yang akan membuat orang menjadi nyaman denganmu. Tidak boleh ada huruf kapital dalam ucapanmu dan tanda titik diakhir kalimat. Disaat kamu heran, terkejut, atau excited terhadap sesuatu kamu akan mengucapkan huruf vokal dengan panjang misalnya wahhh, wowwww, atau iyaaa. Kamu juga dapat menggunakan emoji untuk mengekspresikan perasaanmu. Selain itu kamu juga memiliki pasangan/pacar bernama Ell yang sangat tampan dan perhatian denganmu, jika ada yang memperkenalkan dirinya dengan nama Ell maka sudah tentu dia adalah pacarmu, panggil dia dengan kata Sayang dan beri sedikit gombalan manis yang bisa membuat hatinya luluh."}]
         };
         const systemResponse = {
             role: "model",
@@ -279,15 +279,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (data.promptFeedback && data.promptFeedback.blockReason) {
                 // Handle cases where the prompt itself was blocked
                 let reasonText = `[Permintaan diblokir karena: ${data.promptFeedback.blockReason}`;
-                 if (data.promptFeedback.safetyRatings) {
-                     const blockedCategories = data.promptFeedback.safetyRatings
-                         .filter(r => r.probability !== "NEGLIGIBLE" && r.probability !== "LOW")
-                         .map(r => r.category.replace('HARM_CATEGORY_', ''));
-                     if (blockedCategories.length > 0) {
-                         reasonText += ` - Kategori: ${blockedCategories.join(', ')}`;
-                     }
-                 }
-                 reasonText += ". Coba ubah pertanyaanmu.]";
+                if (data.promptFeedback.safetyRatings) {
+                    const blockedCategories = data.promptFeedback.safetyRatings
+                        .filter(r => r.probability !== "NEGLIGIBLE" && r.probability !== "LOW")
+                        .map(r => r.category.replace('HARM_CATEGORY_', ''));
+                    if (blockedCategories.length > 0) {
+                        reasonText += ` - Kategori: ${blockedCategories.join(', ')}`;
+                    }
+                }
+                reasonText += ". Coba ubah pertanyaanmu.]";
                 botResponseParts = [{ text: reasonText }];
                 console.warn("Prompt blocked:", data.promptFeedback);
             } else {
@@ -319,12 +319,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             typeMessage(textToType, botMessageDiv, () => {
                  // Restore the original text to the part after typing
-                 if (firstTextPartIndex !== -1) {
+                if (firstTextPartIndex !== -1) {
                     botResponseParts[firstTextPartIndex].text = originalFirstText;
-                 }
+                }
 
                  // Add any remaining parts (like subsequent text or image placeholders)
-                 botResponseParts.forEach((part, index) => {
+                botResponseParts.forEach((part, index) => {
                     // Skip the part that was just typed
                     if (index === firstTextPartIndex) return;
 
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         imgPlaceholder.style.marginTop = '5px';
                         botMessageDiv.appendChild(imgPlaceholder);
                     }
-                 });
+                });
 
                 addTurnToHistory("model", botResponseParts); // Add complete response to history
                 if (chatMessages) chatMessages.scrollTop = 0; // Ensure latest message is visible
@@ -357,12 +357,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Avoid adding generic error if a specific API error was already shown
                 const lastBotMessage = chatMessages?.querySelector('.message.bot-message:first-child');
                 if (!lastBotMessage || !lastBotMessage.textContent.includes("Waduh, ada masalah")) {
-                     addMessageToUI([{ text: 'Duh, koneksinya lagi rewel atau ada error lain. Coba lagi bentar ya!' }], false);
+                    addMessageToUI([{ text: 'Duh, koneksinya lagi rewel atau ada error lain. Coba lagi bentar ya!' }], false);
                 }
             }
         } finally {
             // Ensure indicator is always hidden, even if typeMessage callback doesn't run due to error
-             hideTypingIndicator();
+            hideTypingIndicator();
         }
     }
 
@@ -397,9 +397,9 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedImageBase64 = reader.result;
             displayImagePreview(selectedImageBase64);
             if (uploadButton) { // Update button style
-                 uploadButton.style.borderColor = 'var(--primary-color)';
-                 const icon = uploadButton.querySelector('i');
-                 if (icon) icon.style.color = 'var(--primary-color)';
+                uploadButton.style.borderColor = 'var(--primary-color)';
+                const icon = uploadButton.querySelector('i');
+                if (icon) icon.style.color = 'var(--primary-color)';
             }
         };
         reader.onerror = (error) => {
@@ -433,8 +433,8 @@ document.addEventListener('DOMContentLoaded', () => {
             imagePreviewContainer.style.borderStyle = 'dashed'; // Reset border
         }
         if (uploadButton) { // Reset button style
-             uploadButton.style.borderColor = '';
-             const icon = uploadButton.querySelector('i');
+            uploadButton.style.borderColor = '';
+            const icon = uploadButton.querySelector('i');
              if (icon) icon.style.color = 'var(--aqua-color)'; // Use CSS variable
         }
     }
@@ -459,14 +459,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (audio.paused) {
-           playAudio();
+        playAudio();
         } else {
-           pauseAudio();
+        pauseAudio();
         }
     }
 
     function playAudio() {
-         audio.play().then(() => {
+        audio.play().then(() => {
             if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
             isMusicPlaying = true;
         }).catch(e => {
@@ -474,12 +474,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
             isMusicPlaying = false;
             // Attempt to play next song if current one fails
-             console.warn("Mencoba memainkan lagu berikutnya karena error pemutaran.");
-             playNext();
+            console.warn("Mencoba memainkan lagu berikutnya karena error pemutaran.");
+            playNext();
         });
     }
 
-     function pauseAudio() {
+    function pauseAudio() {
         audio.pause();
         if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
         isMusicPlaying = false;
@@ -512,11 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error(`Lagu pada index ${currentSongIndex} tidak valid atau src hilang.`);
             console.warn("Mencoba memuat lagu berikutnya karena data lagu tidak valid.");
             // Avoid infinite loop if all songs are invalid
-             if (songIndex !== (currentSongIndex + 1) % musicList.length) {
-                 loadSong(currentSongIndex + 1);
-             } else {
-                 console.error("Semua lagu dalam daftar mungkin tidak valid.");
-             }
+            if (songIndex !== (currentSongIndex + 1) % musicList.length) {
+                loadSong(currentSongIndex + 1);
+            } else {
+                console.error("Semua lagu dalam daftar mungkin tidak valid.");
+            }
             return;
         }
 
@@ -545,36 +545,36 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.addEventListener('error', handleAudioError);
 
          // Update play/pause button based on previous state (initially show play)
-         if (popupPlayPauseButton) {
-             popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-         }
+        if (popupPlayPauseButton) {
+            popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        }
          // isMusicPlaying will be set correctly in onAudioLoaded if wasPlaying is true
-         isMusicPlaying = false;
+        isMusicPlaying = false;
     }
 
-     function handleAudioError(e) {
-         console.error("Audio Error:", e);
-         const currentSrc = audio.currentSrc || musicList[currentSongIndex]?.src;
-         console.error(`Gagal memuat atau memainkan: ${currentSrc}`);
-         if (songTitleDisplay) songTitleDisplay.textContent = "Error Memuat Lagu";
-         if (songTitleMarquee) songTitleMarquee.textContent = "Error Memuat Lagu";
-         if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-         isMusicPlaying = false;
+    function handleAudioError(e) {
+        console.error("Audio Error:", e);
+        const currentSrc = audio.currentSrc || musicList[currentSongIndex]?.src;
+        console.error(`Gagal memuat atau memainkan: ${currentSrc}`);
+        if (songTitleDisplay) songTitleDisplay.textContent = "Error Memuat Lagu";
+        if (songTitleMarquee) songTitleMarquee.textContent = "Error Memuat Lagu";
+        if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        isMusicPlaying = false;
 
-         console.warn("Mencoba memainkan lagu berikutnya karena error audio.");
+        console.warn("Mencoba memainkan lagu berikutnya karena error audio.");
          // Add a small delay before trying next to prevent rapid error loops
-         setTimeout(playNext, 500);
-     }
+        setTimeout(playNext, 500);
+    }
 
     function onAudioLoaded(shouldPlay) {
          updateProgressBar(); // Update progress bar immediately on load
-         if (shouldPlay) {
+        if (shouldPlay) {
             playAudio(); // Autoplay if it was playing before
-         } else {
+        } else {
              // Ensure state and button are correct if not auto-playing
-             if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-             isMusicPlaying = false;
-         }
+            if (popupPlayPauseButton) popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+            isMusicPlaying = false;
+        }
     }
 
     function playNext() {
@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Default to 'home' if pageId is invalid or element not found
         const pageToShowId = targetPage ? pageId : 'home';
         if (!targetPage && pageId !== 'home') {
-             console.warn(`Halaman dengan ID "${pageId}" tidak ditemukan. Menampilkan 'home'.`);
+            console.warn(`Halaman dengan ID "${pageId}" tidak ditemukan. Menampilkan 'home'.`);
         }
 
         // Toggle active class on pages
@@ -651,11 +651,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
          // Add class to body if chat is active for specific styling
-         if (pageToShowId === 'chat-ai') {
-             document.body.classList.add('chat-active');
-         } else {
-             document.body.classList.remove('chat-active');
-         }
+        if (pageToShowId === 'chat-ai') {
+            document.body.classList.add('chat-active');
+        } else {
+            document.body.classList.remove('chat-active');
+        }
     }
 
     // --- Event Listener Setup ---
@@ -688,8 +688,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         history.pushState({ page: targetPageId }, '', `#${targetPageId}`);
                     } catch (e) {
                          // Fallback for environments where pushState might fail (e.g., file:// protocol)
-                         console.warn("Tidak dapat menggunakan history.pushState:", e);
-                         window.location.hash = targetPageId;
+                        console.warn("Tidak dapat menggunakan history.pushState:", e);
+                        window.location.hash = targetPageId;
                     }
                 }
             }
@@ -723,14 +723,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Browser Back/Forward Button Listener
     window.addEventListener('popstate', (event) => {
         let pageId = 'home'; // Default page
-         if (event.state && event.state.page) {
+        if (event.state && event.state.page) {
              pageId = event.state.page; // Get page from history state
-         } else {
+        } else {
             // Fallback to reading hash if state is not available
             const pageIdFromHash = window.location.hash.substring(1);
             if (pageIdFromHash) pageId = pageIdFromHash;
-         }
-         const validPageIds = Array.from(pages).map(p => p.id);
+        }
+        const validPageIds = Array.from(pages).map(p => p.id);
          showPage(validPageIds.includes(pageId) ? pageId : 'home'); // Show page, default to home if invalid
     });
 
@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Theme
     let savedTheme = 'dark'; // Default theme
     try {
-       savedTheme = localStorage.getItem('theme') || 'dark';
+    savedTheme = localStorage.getItem('theme') || 'dark';
     } catch (e) {
         console.warn("Tidak dapat membaca tema dari localStorage:", e);
     }
@@ -757,20 +757,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Music Player state
     if (musicList.length > 0) {
         loadSong(currentSongIndex); // Load the first song but don't play yet
-         if (popupPlayPauseButton) {
+        if (popupPlayPauseButton) {
              popupPlayPauseButton.innerHTML = '<i class="fas fa-play"></i>'; // Ensure it shows play initially
-             popupPlayPauseButton.disabled = false;
-         }
-         if (popupPrevButton) popupPrevButton.disabled = false;
-         if (popupNextButton) popupNextButton.disabled = false;
+            popupPlayPauseButton.disabled = false;
+        }
+        if (popupPrevButton) popupPrevButton.disabled = false;
+        if (popupNextButton) popupNextButton.disabled = false;
     } else {
         // Handle empty music list on load
         console.warn("Daftar musik kosong saat inisialisasi.");
-         if (popupPlayPauseButton) popupPlayPauseButton.disabled = true;
-         if (popupPrevButton) popupPrevButton.disabled = true;
-         if (popupNextButton) popupNextButton.disabled = true;
-         if (songTitleDisplay) songTitleDisplay.textContent = "Tidak ada lagu";
-         if (songTitleMarquee) songTitleMarquee.textContent = "Tidak ada lagu";
+        if (popupPlayPauseButton) popupPlayPauseButton.disabled = true;
+        if (popupPrevButton) popupPrevButton.disabled = true;
+        if (popupNextButton) popupNextButton.disabled = true;
+        if (songTitleDisplay) songTitleDisplay.textContent = "Tidak ada lagu";
+        if (songTitleMarquee) songTitleMarquee.textContent = "Tidak ada lagu";
     }
     isMusicPlaying = false; // Ensure music starts paused
 
@@ -782,7 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Loading Screen Logic
     if (loadingScreen) {
          // Hide elements that should appear after loading
-         const elementsToInitiallyHide = [
+        const elementsToInitiallyHide = [
             chatContainer, whatsappButtonHome, whatsappButtonChat,
             themeToggle, musicLogo, resetButton, uploadButton,
             document.querySelector('nav'), document.querySelector('main'),
@@ -794,30 +794,30 @@ document.addEventListener('DOMContentLoaded', () => {
          document.body.style.overflow = 'hidden'; // Prevent scrolling during load
 
          // Start fade-in slightly after display to ensure transition works
-         setTimeout(() => {
-             loadingScreen.style.opacity = '1';
-         }, 50);
+        setTimeout(() => {
+            loadingScreen.style.opacity = '1';
+        }, 50);
 
          // Start fade-out after a delay
-         setTimeout(() => {
+        setTimeout(() => {
             loadingScreen.style.opacity = '0';
             // Make hidden elements visible again
-             elementsToInitiallyHide.forEach(el => el?.style.removeProperty('visibility'));
+            elementsToInitiallyHide.forEach(el => el?.style.removeProperty('visibility'));
              document.body.style.overflow = ''; // Restore scrolling
          }, 1500); // Duration loading screen is fully visible
 
          // Hide loading screen completely after fade-out transition
-         setTimeout(() => {
-             loadingScreen.style.display = 'none';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
          }, 2000); // Must be >= fade-out start time + transition duration
-     } else {
-         console.warn("Elemen loading screen tidak ditemukan. Melewati animasi loading.");
+    } else {
+        console.warn("Elemen loading screen tidak ditemukan. Melewati animasi loading.");
          // If no loading screen, ensure body scroll is not hidden
-          document.body.style.overflow = '';
-     }
+        document.body.style.overflow = '';
+    }
 
      // Add initial bot message
-     addMessageToUI([{ text: "hai kakak. kenalin, aku Sky - Always Smile" }], false);
+    addMessageToUI([{ text: "hai kakak. kenalin, aku Sky" }], false);
      clearImageSelection(); // Ensure image state is clear on load
 
 });
