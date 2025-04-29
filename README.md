@@ -24,7 +24,3 @@ Sky-AI dibuat menggunakan bahasa pemrograman berikut:
 - **Hosting** menggunakan *Vercel*
 - **Art** dibuat oleh *YourFavGadget*
 - **Font** oleh *Google Font*
-
-## Clone repositori ini ke komputer Anda:
-   ```bash
-   git clone https://github.com/EllzXn/sky-ai.git
