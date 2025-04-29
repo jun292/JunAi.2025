@@ -1,25 +1,30 @@
-# 🌌 Sky-AI: Solusi Cerdas Berbasis Artificial Intelligence 🌟
+# Sky-AI
 
-**Sky-AI** adalah proyek revolusioner berbasis **Artificial Intelligence (AI)** yang menggabungkan teknologi modern untuk menghadirkan solusi pintar, cepat, dan inovatif. Proyek ini dirancang untuk memberikan pengalaman terbaik dengan antarmuka yang menarik dan performa yang optimal.
+**Sky-AI** adalah AI yang dibuat untuk menjadi teman cerita bagi semua orang. AI ini dibuat menggunakan API Gemini dengan model Gemini 2.0 Flash.
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-- 🚀 **Pemrosesan AI Canggih**: Memanfaatkan algoritma AI terkini untuk memberikan hasil yang cepat dan akurat.
-- 🎨 **Antarmuka Pengguna Interaktif**: Desain modern menggunakan **CSS** dan **HTML** untuk pengalaman pengguna yang mulus.
-- ⚡ **Backend Dinamis**: Dibangun dengan **JavaScript** untuk performa maksimal dan fleksibilitas.
+- **Berinteraksi**: Sky-AI dapat berinteraksi selayaknya manusia wanita remaja pada umumnya.
+- **Melihat gambar**: Sky-AI dapat melihat gambar yang dikirim oleh user.
+- **Memutar musik**: User dapat memutar musik yang sudah di sediakan.
 
-## 🛠️ Teknologi yang Digunakan
+## Bahasa pemrograman
 
-Sky-AI dibuat menggunakan teknologi-teknologi berikut:
+Sky-AI dibuat menggunakan bahasa pemrograman berikut:
 
 - **JavaScript**: Mengelola logika aplikasi dan pemrosesan data.
 - **CSS**: Memberikan desain visual yang menawan.
 - **HTML**: Membangun struktur dasar halaman web.
 
-## 🚀 Langkah Memulai
+## Credit
 
-Ikuti langkah-langkah sederhana ini untuk memulai:
+- **Sky-AI** dibuat oleh *EllzXn*
+- **API Gemini** oleh *Google AI Studio*
+- **UI/UX** dibuat oleh *LippWangsaff* dan *EllzXn*
+- **Hosting** menggunakan *Vercel*
+- **Art** dibuat oleh *YourFavGadget*
+- **Font** oleh *Google Font*
 
-1. Clone repositori ini ke komputer Anda:
+## Clone repositori ini ke komputer Anda:
    ```bash
    git clone https://github.com/EllzXn/sky-ai.git
