@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --bg-color: #1d1d1d;
+    --bg-color: #171717;
     --nav-bg-color: #1f1f1f;
     --card-bg-color: #1e1e1e;
-    --text-color: #e0e0e0;
+    --text-color: #ffffff;
     --heading-color: #ffffff;
     --primary-color: #99c4d5;
     --secondary-color: #1d1d1d;
@@ -19,7 +19,7 @@
     --button-hover-bg: #99a8bf;
     --scroll-track: #1f1f1f;
     --scroll-thumb: #444444;
-    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-color: rgba(0, 0, 0, 0.5);
     --typing-dot: #b0b0b0;
     --message-bot-bg: #1e1e1e;
     --message-user-bg: #99c4d5;
@@ -27,6 +27,7 @@
     --message-user-text: #000000;
     --rgb-primary: 3, 218, 198;
     --aqua-color: #99c4d5;
+    --my-rgba: rgba(153, 196, 213, 0.5);
 }
 
 body.light-theme {
@@ -34,7 +35,7 @@ body.light-theme {
     --nav-bg-color: #ffffff;
     --card-bg-color: #ffffff;
     --text-color: #333333;
-    --heading-color: #000000;
+    --heading-color: #333333;
     --primary-color: #99c4d5;
     --secondary-color: #6c757d;
     --icon-color: #555555;
@@ -52,7 +53,7 @@ body.light-theme {
     --typing-dot: #555555;
     --message-bot-bg: #ffffff;
     --message-user-bg: #99c4d5;
-    --message-bot-text: #000000;
+    --message-bot-text: #333333;
     --message-user-text: #ffffff;
     --rgb-primary: 0, 123, 255;
     --aqua-color: #99c4d5;
@@ -302,12 +303,12 @@ main {
     border-radius: 50%;
     object-fit: cover;
     border: 6px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(var(--rgb-primary), 0.5);
+    box-shadow: 0 0 20px rgba(var(--my-rgba), 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #home .profile-pic img:hover {
     transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 0 30px rgba(var(--rgb-primary), 0.7);
+    box-shadow: 0 0 30px rgba(var(--my-rgba), 0.7);
 }
 #home h1 {
     font-size: 3.5rem;
