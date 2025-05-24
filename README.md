@@ -145,16 +145,20 @@ const GEMINI_API_KEY = "GEMINI_API_KEY";
 ```
 
 Ganti **"GEMINI_API_KEY"** dengan APIKEY Gemini milikmu dan **"GEMINI_MODEL"** dengan model gemini yang kamu mau. APIKEY dapat kamu ambil [`disini`](https://aistudio.google.com/apikey)
+
 ## Pesan Pertama AI
 <p align="center">
   <img src="https://files.catbox.moe/l2odjn.png"/></>
 </p>
+
 ```bash
 # sky.js
 addMessageToUI([{ text: "hai kakak. kenalin, aku Sky" }], false);
      clearImageSelection();
 ```
+
 Ubah **"hai kakak. kenalin, aku Sky"** menjadi pesan AI pertama kamu
+
 ## Menaruh Respon AI Dengan Animasi Mengetik
 ```bash
 # sky.js
@@ -173,13 +177,16 @@ const botMessageWrapper = document.createElement('div');
                  botResponseParts[firstTextPartIndex].text = '';
             }
 ```
+
 Ini berfungsi untuk menaruh respon AI lebih menarik dengan adanya animasi mengetik
+
 ## List lagu
 ```bash
 # sky.js
 const musicItems = [
         { src: "Link Lagu", thumbnail: "Link Thumbnail", title: "Judul" },];
 ```
+
 ### Dengan:
 - **"Link Lagu"** sebagai link dari lagu kamu
 - **"Link Thumbnail"** sebagai link dari thumbnail lagu kamu
