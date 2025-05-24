@@ -47,6 +47,7 @@ Menampilkan cara kerja Sky-AI
 
 ```bash
 # index.html
+
 <head>
   <meta property="og:title" content="Judul">
   <meta property="og:description" content="Deskripsi">
@@ -64,6 +65,7 @@ Menampilkan cara kerja Sky-AI
 ## Warna
 ```bash
 # sky.css
+
 :root {
     --bg-color: #171717;
     --nav-bg-color: #1f1f1f;
@@ -93,6 +95,7 @@ Menampilkan cara kerja Sky-AI
     --aqua-color: #99c4d5;
     --my-rgba: rgba(153, 196, 213, 0.5);
 }
+
 body.light-theme {
     --bg-color: #f4f7fc;
     --nav-bg-color: #ffffff;
@@ -128,6 +131,7 @@ Untuk cara penggunaan dapat dengan mengetik **var(--nama-dari-warna)**. Contoh *
 ## Membuat Model
 ```bash
 # sky.js
+
 const systemInstruction = {
             role: "user",
             parts: [{ text: "Nama kamu Sky"}]
@@ -139,6 +143,7 @@ Pada bagian **"Nama kamu Sky"**, ubah menjadi model AI kamu dimulai dari **nama,
 ## Integrasi Dengan Gemini
 ```bash
 # sky.js
+
 const GEMINI_API_KEY = "GEMINI_API_KEY";
     const GEMINI_MODEL = "GEMINI_MODEL";
     const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
@@ -153,6 +158,7 @@ Ganti **"GEMINI_API_KEY"** dengan APIKEY Gemini milikmu dan **"GEMINI_MODEL"** d
 
 ```bash
 # sky.js
+
 addMessageToUI([{ text: "hai kakak. kenalin, aku Sky" }], false);
      clearImageSelection();
 ```
@@ -162,15 +168,18 @@ Ubah **"hai kakak. kenalin, aku Sky"** menjadi pesan AI pertama kamu
 ## Menaruh Respon AI Dengan Animasi Mengetik
 ```bash
 # sky.js
+
 const botMessageWrapper = document.createElement('div');
             botMessageWrapper.className = 'message-wrapper bot-wrapper';
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'message bot-message';
             botMessageWrapper.appendChild(botMessageDiv);
             if (chatMessages) chatMessages.prepend(botMessageWrapper);
+
             const firstTextPartIndex = botResponseParts.findIndex(p => p.text);
             let textToType = "...";
             let originalFirstText = "";
+
             if (firstTextPartIndex !== -1) {
                 textToType = botResponseParts[firstTextPartIndex].text.trim();
                  originalFirstText = botResponseParts[firstTextPartIndex].text;
@@ -183,6 +192,7 @@ Ini berfungsi untuk menaruh respon AI lebih menarik dengan adanya animasi menget
 ## List lagu
 ```bash
 # sky.js
+
 const musicItems = [
         { src: "Link Lagu", thumbnail: "Link Thumbnail", title: "Judul" },];
 ```
