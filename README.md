@@ -1,24 +1,24 @@
 <p align="center">
-  <img src="https://files.catbox.moe/vbbs1p.jpg"/></>
+  <img src="https://files.catbox.moe/id7sng.jpg"/></>
 </p>
 
-# Sky-AI
+# JunAi
 
-**Sky-AI** adalah AI yang dibuat untuk menjadi teman cerita bagi semua orang. AI ini dibuat menggunakan API Gemini dengan model Gemini 2.0 Flash.
+**JunAi** adalah AI yang dibuat untuk menjadi teman cerita bagi semua orang. AI ini dibuat menggunakan API Gemini dengan model Gemini 2.0 Flash.
 
 ---
 
 ## Fitur Utama
 
-- **Berinteraksi**: Sky-AI dapat berinteraksi selayaknya manusia wanita remaja pada umumnya.
-- **Melihat gambar**: Sky-AI dapat melihat gambar yang dikirim oleh user.
+- **Berinteraksi**: JunAi dapat berinteraksi selayaknya manusia wanita remaja pada umumnya.
+- **Melihat gambar**: JunAi dapat melihat gambar yang dikirim oleh user.
 - **Memutar musik**: User dapat memutar musik yang sudah di sediakan.
 
 ---
 
 ## Bahasa Pemrograman
 
-Sky-AI dibuat menggunakan bahasa pemrograman berikut:
+JunAi dibuat menggunakan bahasa pemrograman berikut:
 
 - **JavaScript**: Mengelola logika aplikasi dan pemrosesan data.
 - **CSS**: Memberikan desain visual yang menawan.
@@ -28,17 +28,16 @@ Sky-AI dibuat menggunakan bahasa pemrograman berikut:
 
 ## Credit
 
-- **Sky-AI** dibuat oleh *EllzXn*
+- **JunAi** dibuat oleh *junek*
 - **API Gemini** oleh *Google AI Studio*
-- **UI/UX** dibuat oleh *LippWangsaff* dan *EllzXn*
+- **UI/UX** dibuat oleh *junek*
 - **Hosting** menggunakan *Vercel*
-- **Art** dibuat oleh *YourFavGadget*
 - **Font** oleh *Google Font*
 
 ---
 
 # Dokumentasi
-Menampilkan cara kerja Sky-AI
+Menampilkan cara kerja JunAi
 
 ## Membuat Meta Tag
 <p align="center">
@@ -203,6 +202,3 @@ const musicItems = [
 - **"Judul"** sebagai judul dari lagu kamu
 
 ---
-
-# Kunjungi Website
-Kunjungi, lihat dan coba [`Sky-AI`](https://ellsky-ai.vercel.app)
